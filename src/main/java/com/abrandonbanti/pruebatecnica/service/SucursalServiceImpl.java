@@ -8,6 +8,12 @@ import org.springframework.stereotype.Service;
 import com.abrandonbanti.pruebatecnica.entity.Sucursal;
 import com.abrandonbanti.pruebatecnica.repository.SucursalRepository;
 
+/**
+ * Implementación del servicio de sucursal.
+ * @author Brandon Banti
+ * @version 1.0
+ */
+
 @Service
 public class SucursalServiceImpl implements SucursalService {
 

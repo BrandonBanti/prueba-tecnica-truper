@@ -9,6 +9,12 @@ import com.abrandonbanti.pruebatecnica.dto.ProductoPrecioResquestDTO;
 import com.abrandonbanti.pruebatecnica.entity.Producto;
 import com.abrandonbanti.pruebatecnica.repository.ProductoRepository;
 
+/**
+ * Implementación del servicio de producto.
+ * @author Brandon Banti
+ * @version 1.0
+ */
+
 @Service
 public class ProductoServiceImpl implements ProductoService {
 	

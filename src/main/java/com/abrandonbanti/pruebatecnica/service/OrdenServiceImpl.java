@@ -1,13 +1,27 @@
 package com.abrandonbanti.pruebatecnica.service;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+
+import com.abrandonbanti.pruebatecnica.dto.OrdenRequestDTO;
 import com.abrandonbanti.pruebatecnica.entity.Orden;
+import com.abrandonbanti.pruebatecnica.entity.Producto;
 import com.abrandonbanti.pruebatecnica.entity.Sucursal;
 import com.abrandonbanti.pruebatecnica.repository.OrdenRepository;
-import com.abrandonbanti.pruebatecnica.repository.ProductoRepository;
 
+/**
+ * Implementación del servicio de orden.
+ * @author Brandon Banti
+ * @version 1.0
+ */
+
+@Service
 public class OrdenServiceImpl implements OrdenService {
 	
 	private OrdenRepository ordenRepository;
@@ -38,20 +52,34 @@ public class OrdenServiceImpl implements OrdenService {
 	}
 
 	@Override
-	public Orden postOrden(Orden orden) {
+	@Transactional
+	public Orden postOrden(OrdenRequestDTO ordenRequestDTO) {
 		//Validar Sucursal
-		Sucursal sucursal = sucursalService.getSucursalById(orden.getSucursal().getId());
+		Sucursal sucursal = sucursalService.getSucursalById(ordenRequestDTO.getIdSucursal());
 		
 		//Validar productos
-		if(orden.getProductos().isEmpty()) {
+		if(ordenRequestDTO.getListaProductos().isEmpty()) {
 			throw new IllegalArgumentException("No hay productos");
 		}
 		
 		//Crear Orden
+		Orden orden = new Orden();
+		orden.setFecha(new Date());
+		orden.setTotal(ordenRequestDTO.getTotal());
+		orden.setSucursal(sucursal);
 		
 		
 		
-		return null;
+		//Guardar Productos
+		List<Producto> listaProductos = new ArrayList<>();
+		for(Producto producto : ordenRequestDTO.getListaProductos()) {
+			producto.setOrden(orden);
+			listaProductos.add(productoService.postProduct(producto));
+		}
+		
+		orden.setProductos(listaProductos);		
+		
+		return ordenRepository.save(orden);
 	}
 
 }

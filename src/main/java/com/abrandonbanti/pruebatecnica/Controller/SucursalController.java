@@ -13,7 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.abrandonbanti.pruebatecnica.entity.Sucursal;
 import com.abrandonbanti.pruebatecnica.service.SucursalService;
 
-
+/**
+ * Esta clase representa un controlador para gestionar Sucursal.
+ * @author Brandon Banti
+ * @version 1.0
+ */
 
 @RestController
 @RequestMapping("/v1/sucursal")

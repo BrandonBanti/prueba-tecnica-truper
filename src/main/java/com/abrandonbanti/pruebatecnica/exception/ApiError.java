@@ -6,6 +6,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Clase que representa un Error en el API.
+ * @author Brandon Banti
+ * @version 1.0
+ */
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

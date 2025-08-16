@@ -9,6 +9,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+/**
+ * Clase que controla las excepciones
+ * @author Brandon Banti
+ * @version 1.0
+ */
+
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 	// Errores de validación de datos

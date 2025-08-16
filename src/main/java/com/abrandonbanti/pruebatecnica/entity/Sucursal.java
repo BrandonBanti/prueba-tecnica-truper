@@ -2,6 +2,7 @@ package com.abrandonbanti.pruebatecnica.entity;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,13 +23,13 @@ public class Sucursal {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@Column(nullable = false, length = 50)
 	private String nombre;
-	
-	
 	
 	@OneToMany(mappedBy = "sucursal")
 	@JsonIgnore
-	private List<Orden> ordenes;
+	private List<Orden> orden;
 
 
 }

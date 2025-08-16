@@ -15,6 +15,12 @@ import com.abrandonbanti.pruebatecnica.dto.ProductoPrecioResquestDTO;
 import com.abrandonbanti.pruebatecnica.entity.Producto;
 import com.abrandonbanti.pruebatecnica.service.ProductoService;
 
+/**
+ * Esta clase representa un controlador para gestionar Productos.
+ * @author Brandon Banti
+ * @version 1.0
+ */
+
 @RestController
 @RequestMapping("/v1/producto")
 public class ProductController {
